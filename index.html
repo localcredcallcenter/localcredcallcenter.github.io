@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Localcred Callcenter - Especialistas em teleatendimento, cobrança, promoção de vendas e intermediação de serviços.">
+    <title>Localcred Callcenter | Teleatendimento Profissional em São Paulo</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Roboto:wght@400;500&display=swap');
+        
+        :root {
+            --primary: #1e40af;
+        }
+        
+        .hero-bg {
+            background: linear-gradient(rgba(30, 64, 175, 0.85), rgba(30, 64, 175, 0.9)), url('https://picsum.photos/id/1015/2000/1200') center/cover no-repeat;
+        }
+        
+        .nav-link {
+            transition: all 0.3s ease;
+        }
+        
+        .nav-link:hover {
+            color: #3b82f6;
+            transform: translateY(-2px);
+        }
+        
+        .service-card {
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+        }
+        
+        .footer-link {
+            transition: all 0.2s ease;
+        }
+    </style>
+</head>
+<body class="font-sans antialiased text-gray-800">
+    <!-- NAVBAR -->
+    <nav class="bg-white shadow-md sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="flex justify-between items-center py-5">
+                <div class="flex items-center gap-3">
+                    <div class="w-10 h-10 bg-blue-700 rounded-xl flex items-center justify-center text-white font-bold text-2xl">LC</div>
+                    <div>
+                        <span class="text-2xl font-bold text-blue-900">Localcred</span>
+                        <span class="text-blue-600 font-medium">Callcenter</span>
+                    </div>
+                </div>
+                
+                <div class="hidden md:flex items-center gap-8 text-sm font-medium">
+                    <a href="#home" class="nav-link text-gray-700 hover:text-blue-600">Início</a>
+                    <a href="#sobre" class="nav-link text-gray-700 hover:text-blue-600">Sobre Nós</a>
+                    <a href="#servicos" class="nav-link text-gray-700 hover:text-blue-600">Serviços</a>
+                    <a href="#contato" class="nav-link text-gray-700 hover:text-blue-600">Contato</a>
+                </div>
+                
+                <a href="#contato" 
+                   class="bg-blue-700 hover:bg-blue-800 text-white px-6 py-3 rounded-full font-medium flex items-center gap-2 transition">
+                    <i class="fas fa-phone"></i>
+                    Fale Conosco
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- HERO -->
+    <header id="home" class="hero-bg text-white py-24 md:py-32">
+        <div class="max-w-7xl mx-auto px-6 text-center">
+            <div class="max-w-3xl mx-auto">
+                <h1 class="text-5xl md:text-6xl font-bold leading-tight mb-6">
+                    Soluções completas em <span class="text-blue-300">teleatendimento</span> e relacionamento com clientes
+                </h1>
+                <p class="text-xl md:text-2xl mb-10 text-blue-100">
+                    LOCALCRED CALLCENTER, TELEATENDIMENTO E TELESSERVICOS LTDA<br>
+                    Mais de 10 anos conectando empresas e clientes com excelência.
+                </p>
+                <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                    <a href="#contato" 
+                       class="bg-white text-blue-700 hover:bg-blue-50 font-semibold px-8 py-4 rounded-2xl text-lg flex items-center justify-center gap-3 transition">
+                        <i class="fas fa-headset"></i>
+                        Solicitar Orçamento
+                    </a>
+                    <a href="#servicos" 
+                       class="border-2 border-white hover:bg-white/10 font-semibold px-8 py-4 rounded-2xl text-lg flex items-center justify-center gap-3 transition">
+                        Conheça nossos serviços
+                    </a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- SOBRE -->
+    <section id="sobre" class="py-20 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="grid md:grid-cols-2 gap-16 items-center">
+                <div>
+                    <span class="inline-block px-4 py-2 bg-blue-100 text-blue-700 rounded-full text-sm font-medium mb-4">Desde 2015</span>
+                    <h2 class="text-4xl font-bold text-gray-900 mb-6">Quem somos</h2>
+                    <p class="text-lg text-gray-600 mb-6">
+                        A <strong>Localcred Callcenter, Teleatendimento e Telesservicos Ltda</strong> é uma empresa especializada em soluções de contato com clientes, com foco em eficiência, ética e resultados.
+                    </p>
+                    <p class="text-lg text-gray-600">
+                        Atuamos com transparência e profissionalismo, oferecendo serviços de teleatendimento, cobrança, promoção de vendas e intermediação de negócios (exceto imobiliários).
+                    </p>
+                    
+                    <div class="mt-10 grid grid-cols-2 gap-6">
+                        <div>
+                            <div class="text-4xl font-bold text-blue-600">10+</div>
+                            <div class="text-sm text-gray-500">Anos de experiência</div>
+                        </div>
+                        <div>
+                            <div class="text-4xl font-bold text-blue-600">24/7</div>
+                            <div class="text-sm text-gray-500">Suporte operacional</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="bg-white p-8 rounded-3xl shadow-xl">
+                    <h3 class="font-semibold text-xl mb-6 flex items-center gap-3">
+                        <i class="fas fa-building text-blue-600"></i>
+                        Dados da Empresa
+                    </h3>
+                    <div class="space-y-4 text-sm">
+                        <div class="flex justify-between border-b pb-3">
+                            <span class="text-gray-500">Razão Social</span>
+                            <span class="font-medium text-right">LOCALCRED CALLCENTER, TELEATENDIMENTO E TELESSERVICOS LTDA</span>
+                        </div>
+                        <div class="flex justify-between border-b pb-3">
+                            <span class="text-gray-500">CNPJ</span>
+                            <span class="font-medium">24.282.653/0001-79</span>
+                        </div>
+                        <div class="flex justify-between border-b pb-3">
+                            <span class="text-gray-500">Endereço</span>
+                            <span class="font-medium text-right">Rua Barão de Itapetininga, 275<br>Andar 10 - Parte B<br>República - São Paulo/SP</span>
+                        </div>
+                        <div class="flex justify-between border-b pb-3">
+                            <span class="text-gray-500">CEP</span>
+                            <span class="font-medium">01.042-001</span>
+                        </div>
+                        <div class="flex justify-between">
+                            <span class="text-gray-500">Telefone</span>
+                            <a href="tel:1136660166" class="font-medium hover:text-blue-600">(11) 3666-0166</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SERVIÇOS -->
+    <section id="servicos" class="py-20">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold mb-4">Nossos Serviços</h2>
+                <p class="max-w-2xl mx-auto text-gray-600 text-lg">Soluções completas para o relacionamento com seus clientes</p>
+            </div>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <!-- Card 1 -->
+                <div class="service-card bg-white border border-gray-100 rounded-3xl p-8">
+                    <div class="w-14 h-14 bg-blue-100 text-blue-700 rounded-2xl flex items-center justify-center text-3xl mb-6">📞</div>
+                    <h3 class="text-2xl font-semibold mb-3">Teleatendimento</h3>
+                    <p class="text-gray-600">Atendimento receptivo e ativo via telefone, WhatsApp e canais digitais com equipes treinadas e scripts personalizados.</p>
+                    <ul class="mt-6 space-y-2 text-sm">
+                        <li class="flex items-start gap-2"><i class="fas fa-check text-green-500 mt-0.5"></i> Suporte ao cliente</li>
+                        <li class="flex items-start gap-2"><i class="fas fa-check text-green-500 mt-0.5"></i> Atendimento 24/7</li>
+                        <li class="flex items-start gap-2"><i class="fas fa-check text-green-500 mt-0.5"></i> Qualidade monitorada</li>
+                    </ul>
+                </div>
+                
+                <!-- Card 2 -->
+                <div class="service-card bg-white border border-gray-100 rounded-3xl p-8">
+                    <div class="w-14 h-14 bg-amber-100 text-amber-700 rounded-2xl flex items-center justify-center text-3xl mb-6">💰</div>
+                    <h3 class="text-2xl font-semibold mb-3">Cobrança Amigável</h3>
+                    <p class="text-gray-600">Recuperação de crédito com abordagem ética e humanizada, preservando o relacionamento com o cliente.</p>
+                    <ul class="mt-6 space-y-2 text-sm">
+                        <li class="flex items-start gap-2"><i class="fas fa-check text-green-500 mt-0.5"></i> Cobrança preventiva</li>
+                        <li class="flex items-start gap-2"><i class="fas fa-check text-green-500 mt-0.5"></i> Informações cadastrais</li>
+                        <li class="flex items-start gap-2"><i class="fas fa-check text-green-500 mt-0.5"></i> Relatórios detalhados</li>
+                    </ul>
+                </div>
+                
+                <!-- Card 3 -->
+                <div class="service-card bg-white border border-gray-100 rounded-3xl p-8">
+                    <div class="w-14 h-14 bg-emerald-100 text-emerald-700 rounded-2xl flex items-center justify-center text-3xl mb-6">📈</div>
+                    <h3 class="text-2xl font-semibold mb-3">Promoção de Vendas</h3>
+                    <p class="text-gray-600">Campanhas ativas de telemarketing e cross-selling para aumentar suas vendas e fidelizar clientes.</p>
+                    <ul class="mt-6 space-y-2 text-sm">
+                        <li class="flex items-start gap-2"><i class="fas fa-check text-green-500 mt-0.5"></i> Outbound marketing</li>
+                        <li class="flex items-start gap-2"><i class="fas fa-check text-green-500 mt-0.5"></i> Qualificação de leads</li>
+                        <li class="flex items-start gap-2"><i class="fas fa-check text-green-500 mt-0.5"></i> Follow-up estratégico</li>
+                    </ul>
+                </div>
+                
+                <!-- Card 4 -->
+                <div class="service-card bg-white border border-gray-100 rounded-3xl p-8">
+                    <div class="w-14 h-14 bg-purple-100 text-purple-700 rounded-2xl flex items-center justify-center text-3xl mb-6">🤝</div>
+                    <h3 class="text-2xl font-semibold mb-3">Intermediação de Serviços</h3>
+                    <p class="text-gray-600">Agenciamento de serviços e negócios em geral, com foco em eficiência e parcerias estratégicas.</p>
+                    <ul class="mt-6 space-y-2 text-sm">
+                        <li class="flex items-start gap-2"><i class="fas fa-check text-green-500 mt-0.5"></i> Negociação comercial</li>
+                        <li class="flex items-start gap-2"><i class="fas fa-check text-green-500 mt-0.5"></i> Suporte BPO</li>
+                        <li class="flex items-start gap-2"><i class="fas fa-check text-green-500 mt-0.5"></i> Consultoria operacional</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- DIFERENCIAIS -->
+    <section class="bg-blue-900 text-white py-20">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="grid md:grid-cols-3 gap-10">
+                <div class="text-center">
+                    <div class="mx-auto w-20 h-20 bg-white/10 rounded-3xl flex items-center justify-center text-4xl mb-6">🔒</div>
+                    <h4 class="font-semibold text-xl mb-2">Conformidade Legal</h4>
+                    <p class="text-blue-200">Seguimos todas as normas da LGPD, ANATEL e autorregulamentação do setor.</p>
+                </div>
+                <div class="text-center">
+                    <div class="mx-auto w-20 h-20 bg-white/10 rounded-3xl flex items-center justify-center text-4xl mb-6">📊</div>
+                    <h4 class="font-semibold text-xl mb-2">Tecnologia Avançada</h4>
+                    <p class="text-blue-200">Discadores preditivos, CRM integrado e relatórios em tempo real.</p>
+                </div>
+                <div class="text-center">
+                    <div class="mx-auto w-20 h-20 bg-white/10 rounded-3xl flex items-center justify-center text-4xl mb-6">⭐</div>
+                    <h4 class="font-semibold text-xl mb-2">Equipe Qualificada</h4>
+                    <p class="text-blue-200">Profissionais treinados e monitorados continuamente para máxima qualidade.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CONTATO -->
+    <section id="contato" class="py-20 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="grid lg:grid-cols-2 gap-16">
+                <div>
+                    <h2 class="text-4xl font-bold mb-8">Vamos conversar?</h2>
+                    <p class="text-lg text-gray-600 mb-10">Entre em contato conosco e descubra como podemos ajudar sua empresa a crescer.</p>
+                    
+                    <div class="space-y-8">
+                        <div class="flex gap-5">
+                            <i class="fas fa-phone text-3xl text-blue-600 mt-1"></i>
+                            <div>
+                                <div class="font-medium">Telefone</div>
+                                <a href="tel:1136660166" class="text-xl hover:text-blue-600">(11) 3666-0166</a>
+                            </div>
+                        </div>
+                        <div class="flex gap-5">
+                            <i class="fas fa-envelope text-3xl text-blue-600 mt-1"></i>
+                            <div>
+                                <div class="font-medium">E-mail</div>
+                                <a href="mailto:contato@localcred.com.br" class="text-xl hover:text-blue-600">contato@localcred.com.br</a>
+                            </div>
+                        </div>
+                        <div class="flex gap-5">
+                            <i class="fas fa-map-marker-alt text-3xl text-blue-600 mt-1"></i>
+                            <div>
+                                <div class="font-medium">Endereço</div>
+                                <div class="text-lg">
+                                    Rua Barão de Itapetininga, 275<br>
+                                    10º Andar - Parte B<br>
+                                    República, São Paulo - SP<br>
+                                    CEP: 01.042-001
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Formulário -->
+                <div class="bg-white rounded-3xl shadow-2xl p-8">
+                    <form id="contactForm" class="space-y-6">
+                        <div class="grid grid-cols-2 gap-4">
+                            <div>
+                                <label class="block text-sm font-medium mb-2">Nome</label>
+                                <input type="text" required class="w-full px-4 py-3 border rounded-2xl focus:outline-none focus:border-blue-500">
+                            </div>
+                            <div>
+                                <label class="block text-sm font-medium mb-2">Empresa</label>
+                                <input type="text" class="w-full px-4 py-3 border rounded-2xl focus:outline-none focus:border-blue-500">
+                            </div>
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium mb-2">Telefone / WhatsApp</label>
+                            <input type="tel" required class="w-full px-4 py-3 border rounded-2xl focus:outline-none focus:border-blue-500">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium mb-2">E-mail</label>
+                            <input type="email" required class="w-full px-4 py-3 border rounded-2xl focus:outline-none focus:border-blue-500">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium mb-2">Mensagem</label>
+                            <textarea rows="5" required class="w-full px-4 py-3 border rounded-3xl focus:outline-none focus:border-blue-500" placeholder="Descreva sua necessidade..."></textarea>
+                        </div>
+                        <button type="submit" 
+                                class="w-full bg-blue-700 hover:bg-blue-800 text-white py-4 rounded-2xl font-semibold text-lg transition">
+                            Enviar Mensagem
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- POLITICA DE PRIVACIDADE -->
+    <section class="py-16 bg-white border-t">
+        <div class="max-w-4xl mx-auto px-6">
+            <h2 class="text-3xl font-bold mb-8 text-center">Política de Privacidade</h2>
+            <div class="prose prose-gray max-w-none">
+                <p class="mb-6">A Localcred Callcenter respeita a sua privacidade e está comprometida com a proteção dos seus dados pessoais, em conformidade com a Lei Geral de Proteção de Dados (LGPD).</p>
+                
+                <h3 class="text-xl font-semibold mt-8 mb-3">1. Coleta de Dados</h3>
+                <p>Coletamos apenas os dados necessários para a prestação dos serviços contratados, como nome, telefone, e-mail e informações cadastrais.</p>
+                
+                <h3 class="text-xl font-semibold mt-8 mb-3">2. Uso das Informações</h3>
+                <p>Utilizamos os dados para realizar teleatendimento, cobranças, promoções e intermediação de serviços, sempre com transparência e consentimento.</p>
+                
+                <h3 class="text-xl font-semibold mt-8 mb-3">3. Compartilhamento</h3>
+                <p>Não vendemos seus dados. Compartilhamos apenas com parceiros quando necessário para a execução do serviço e com autoridades quando exigido por lei.</p>
+                
+                <h3 class="text-xl font-semibold mt-8 mb-3">4. Seus Direitos</h3>
+                <p>Você pode solicitar acesso, correção, exclusão ou portabilidade dos seus dados a qualquer momento através do nosso canal de contato.</p>
+                
+                <p class="text-sm text-gray-500 mt-10">Última atualização: Junho/2026. Para mais detalhes, entre em contato conosco.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="bg-gray-900 text-gray-400 py-12">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="grid md:grid-cols-3 gap-10">
+                <div>
+                    <div class="flex items-center gap-3 text-white mb-6">
+                        <div class="w-9 h-9 bg-blue-600 rounded-2xl flex items-center justify-center font-bold">LC</div>
+                        <span class="text-2xl font-bold">Localcred Callcenter</span>
+                    </div>
+                    <p class="text-sm">Excelência em relacionamento com clientes desde 2015.</p>
+                </div>
+                
+                <div>
+                    <h4 class="text-white font-semibold mb-5">Links Rápidos</h4>
+                    <div class="space-y-3 text-sm">
+                        <a href="#sobre" class="footer-link hover:text-white block">Sobre Nós</a>
+                        <a href="#servicos" class="footer-link hover:text-white block">Serviços</a>
+                        <a href="#" onclick="showPrivacy()" class="footer-link hover:text-white block">Política de Privacidade</a>
+                    </div>
+                </div>
+                
+                <div>
+                    <h4 class="text-white font-semibold mb-5">Contato</h4>
+                    <p class="text-sm">(11) 3666-0166</p>
+                    <p class="text-sm">contato@localcred.com.br</p>
+                    <p class="text-xs mt-6">CNPJ: 24.282.653/0001-79</p>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-800 mt-12 pt-8 text-center text-xs">
+                © 2026 Localcred Callcenter, Teleatendimento e Telesservicos Ltda. Todos os direitos reservados.
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Tailwind script already included via CDN
+        
+        // Form submission simulation
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Mensagem enviada com sucesso! Entraremos em contato em breve. Obrigado!');
+            this.reset();
+        });
+        
+        // Smooth scroll
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                if (this.getAttribute('href') !== '#') {
+                    e.preventDefault();
+                    const target = document.querySelector(this.getAttribute('href'));
+                    if (target) {
+                        target.scrollIntoView({
+                            behavior: 'smooth'
+                        });
+                    }
+                }
+            });
+        });
+        
+        function showPrivacy() {
+            alert('Política de Privacidade completa disponível na seção acima. Para mais informações, entre em contato conosco.');
+        }
+        
+        // Mobile menu (simple alert for now)
+        console.log('%c✅ Site Localcred Callcenter carregado com sucesso!', 'color: #1e40af; font-weight: bold');
+    </script>
+</body>
+</html>
