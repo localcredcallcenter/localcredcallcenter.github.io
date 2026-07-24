@@ -3,376 +3,712 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="LOCALCRED CALLCENTER, TELEATENDIMENTO E TELESSERVIÇOS LTDA - Especialista em BPO, teleatendimento, cobrança e recuperação de crédito com total conformidade regulatória.">
-    <meta name="keywords" content="call center, teleatendimento, BPO, cobrança, recuperação de crédito, Localcred">
-    <meta name="robots" content="index, follow">
-    <link rel="canonical" href="https://localcredcallcenter.github.io/">
-    
-    <title>LOCALCRED CALLCENTER | Teleatendimento e BPO Empresarial</title>
-    
-    <!-- Open Graph -->
-    <meta property="og:title" content="LOCALCRED CALLCENTER - Excelência em Teleatendimento">
-    <meta property="og:description" content="Serviços de BPO, teleatendimento e relacionamento com clientes para empresas.">
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://localcredcallcenter.github.io/">
-    
+    <title>Atendimento Financeiro</title>
+    <meta name="description" content="Central de atendimento financeiro. Fale conosco via WhatsApp.">
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=Playfair+Display:wght@700&amp;display=swap');
-        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
         :root {
-            --primary: #1e40af;
-            --accent: #3b82f6;
+            --primary: #22c55e;
+            --primary-dark: #16a34a;
+            --background: #0f1f3c;
+            --secondary: #1a2b4a;
+            --foreground: #ffffff;
+            --muted: #64748b;
+            --muted-light: #e2e8f0;
+            --border: #e2e8f0;
         }
-        
-        * { margin:0; padding:0; box-sizing:border-box; }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
         body {
-            font-family: 'Inter', system-ui, sans-serif;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            background-color: var(--background);
+            color: var(--foreground);
             line-height: 1.6;
-            color: #1f2937;
         }
-        
-        h1, h2, h3 { font-family: 'Playfair Display', sans-serif; }
-        
-        .container { max-width: 1280px; margin: 0 auto; padding: 0 20px; }
-        
-        /* HEADER */
+
+        .container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 1rem;
+        }
+
+        @media (min-width: 768px) {
+            .container {
+                padding: 0 1.5rem;
+            }
+        }
+
+        @media (min-width: 1024px) {
+            .container {
+                padding: 0 2rem;
+            }
+        }
+
+        /* Header */
         header {
-            position: fixed;
+            position: sticky;
             top: 0;
-            left: 0;
-            right: 0;
-            background: rgba(255,255,255,0.97);
-            backdrop-filter: blur(12px);
-            z-index: 1000;
-            border-bottom: 1px solid #e2e8f0;
+            z-index: 50;
+            background-color: var(--background);
+            border-bottom: 1px solid rgba(226, 232, 240, 0.2);
         }
-        
-        nav {
+
+        .header-content {
             display: flex;
             align-items: center;
             justify-content: space-between;
-            padding: 1rem 0;
+            height: 4rem;
         }
-        
+
         .logo {
-            font-size: 1.8rem;
-            font-weight: 700;
-            color: var(--primary);
-            text-decoration: none;
             display: flex;
             align-items: center;
-            gap: 10px;
+            gap: 0.5rem;
         }
-        
-        .nav-menu {
+
+        .logo-circle {
+            width: 2.5rem;
+            height: 2.5rem;
+            background-color: var(--primary);
+            border-radius: 50%;
             display: flex;
-            gap: 2rem;
-            list-style: none;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 1.125rem;
+            color: var(--background);
         }
-        
-        .nav-menu a {
-            color: #1f2937;
-            text-decoration: none;
-            font-weight: 500;
-        }
-        
-        .mobile-menu-btn {
+
+        .logo-text {
+            font-size: 1.125rem;
+            font-weight: bold;
             display: none;
-            font-size: 1.8rem;
-            background: none;
-            border: none;
-            cursor: pointer;
         }
-        
-        /* HERO */
-        .hero {
-            min-height: 100vh;
-            background: linear-gradient(rgba(30,64,175,0.88), rgba(30,58,138,0.92)), url('https://picsum.photos/id/1015/2000/1200') center/cover;
-            display: flex;
+
+        @media (min-width: 640px) {
+            .logo-text {
+                display: inline;
+            }
+        }
+
+        nav {
+            display: none;
+            gap: 1.5rem;
             align-items: center;
-            color: white;
-            position: relative;
         }
-        
-        .hero-content {
-            max-width: 720px;
+
+        @media (min-width: 768px) {
+            nav {
+                display: flex;
+            }
         }
-        
-        .hero h1 {
-            font-size: clamp(2.8rem, 5vw, 4rem);
-            margin-bottom: 1.2rem;
+
+        nav a {
+            font-size: 0.875rem;
+            color: var(--muted);
+            text-decoration: none;
+            transition: color 0.2s;
         }
-        
-        .hero p {
-            font-size: 1.25rem;
-            margin-bottom: 2rem;
-            opacity: 0.95;
+
+        nav a:hover {
+            color: var(--foreground);
         }
-        
+
         .btn {
-            display: inline-block;
-            padding: 16px 40px;
-            background: white;
-            color: var(--primary);
-            font-weight: 600;
-            border-radius: 50px;
-            text-decoration: none;
-            transition: all 0.3s;
-        }
-        
-        .btn:hover { transform: translateY(-3px); }
-        
-        /* SECTIONS */
-        section { padding: 110px 0; }
-        
-        .section-title {
-            font-size: 2.8rem;
-            text-align: center;
-            margin-bottom: 3.5rem;
-            color: var(--primary);
-        }
-        
-        /* Services */
-        .services-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-        }
-        
-        .service-card {
-            background: white;
-            padding: 2.5rem;
-            border-radius: 16px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
-            transition: transform 0.3s;
-        }
-        
-        .service-card:hover {
-            transform: translateY(-10px);
-        }
-        
-        /* FAQ */
-        .faq-item {
-            border: 1px solid #e2e8f0;
-            border-radius: 12px;
-            margin-bottom: 1rem;
-            overflow: hidden;
-        }
-        
-        .faq-question {
-            padding: 1.5rem 2rem;
-            background: white;
+            padding: 0.625rem 1.5rem;
+            border: none;
+            border-radius: 0.5rem;
+            font-size: 1rem;
+            font-weight: 500;
             cursor: pointer;
-            display: flex;
-            justify-content: space-between;
+            text-decoration: none;
+            display: inline-block;
+            transition: all 0.2s;
+            text-align: center;
+        }
+
+        .btn-primary {
+            background-color: var(--primary);
+            color: var(--background);
+        }
+
+        .btn-primary:hover {
+            background-color: var(--primary-dark);
+            transform: scale(1.05);
+        }
+
+        .btn-primary:active {
+            transform: scale(0.97);
+        }
+
+        .btn-outline {
+            background-color: transparent;
+            color: var(--primary);
+            border: 1px solid var(--primary);
+        }
+
+        .btn-outline:hover {
+            background-color: rgba(34, 197, 94, 0.1);
+        }
+
+        .btn-secondary {
+            background-color: var(--secondary);
+            color: var(--foreground);
+        }
+
+        .btn-secondary:hover {
+            background-color: rgba(26, 43, 74, 0.8);
+        }
+
+        /* Hero Section */
+        .hero {
+            background-color: var(--secondary);
+            padding: 3rem 0;
+        }
+
+        @media (min-width: 768px) {
+            .hero {
+                padding: 5rem 0;
+            }
+        }
+
+        .hero-content {
+            display: grid;
+            gap: 2rem;
             align-items: center;
-            font-weight: 600;
         }
-        
-        .faq-answer {
-            padding: 0 2rem 1.5rem;
-            display: none;
+
+        @media (min-width: 768px) {
+            .hero-content {
+                grid-template-columns: 1fr 1fr;
+            }
         }
-        
-        .faq-item.active .faq-answer { display: block; }
-        
-        /* CONTACT */
-        #contato {
-            background: #0f172a;
-            color: white;
+
+        .hero-text h1 {
+            font-size: 2rem;
+            font-weight: bold;
+            margin-bottom: 1rem;
+            line-height: 1.2;
         }
-        
-        form {
+
+        @media (min-width: 768px) {
+            .hero-text h1 {
+                font-size: 3rem;
+            }
+        }
+
+        .hero-badge {
+            display: inline-block;
+            background-color: rgba(34, 197, 94, 0.2);
+            color: var(--primary);
+            padding: 0.25rem 0.75rem;
+            border-radius: 9999px;
+            font-size: 0.875rem;
+            font-weight: 500;
+            margin-bottom: 1rem;
+        }
+
+        .hero-description {
+            font-size: 1.125rem;
+            color: var(--muted-light);
+            margin-bottom: 1.5rem;
+        }
+
+        .hero-buttons {
             display: flex;
             flex-direction: column;
-            gap: 1rem;
+            gap: 0.75rem;
         }
-        
-        input, textarea {
-            padding: 16px;
-            border: 1px solid #475569;
-            background: #1e2937;
-            color: white;
-            border-radius: 8px;
-        }
-        
-        /* FOOTER */
-        footer {
-            background: #020617;
-            color: #94a3b8;
-            padding: 80px 0 40px;
-        }
-        
-        @media (max-width: 768px) {
-            .nav-menu {
-                position: fixed;
-                top: 75px;
-                left: 0;
-                right: 0;
-                background: white;
-                flex-direction: column;
-                padding: 2rem;
-                box-shadow: 0 10px 20px rgba(0,0,0,0.1);
-                display: none;
+
+        @media (min-width: 640px) {
+            .hero-buttons {
+                flex-direction: row;
             }
-            .nav-menu.active { display: flex; }
-            .mobile-menu-btn { display: block; }
+        }
+
+        .hero-cards {
+            display: none;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 0.75rem;
+        }
+
+        @media (min-width: 768px) {
+            .hero-cards {
+                display: grid;
+            }
+        }
+
+        .card {
+            background-color: var(--foreground);
+            color: var(--background);
+            padding: 1.5rem;
+            border-radius: 0.5rem;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+            transition: box-shadow 0.2s;
+        }
+
+        .card:hover {
+            box-shadow: 0 10px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .card-icon {
+            width: 1.25rem;
+            height: 1.25rem;
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+        }
+
+        .card-title {
+            font-weight: 600;
+            font-size: 0.95rem;
+            margin-bottom: 0.25rem;
+        }
+
+        .card-description {
+            font-size: 0.8rem;
+            color: var(--muted);
+        }
+
+        /* Section */
+        .section {
+            padding: 3rem 0;
+        }
+
+        @media (min-width: 768px) {
+            .section {
+                padding: 4rem 0;
+            }
+        }
+
+        .section-title {
+            font-size: 2rem;
+            font-weight: bold;
+            text-align: center;
+            margin-bottom: 0.5rem;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            color: var(--muted);
+            margin-bottom: 2rem;
+        }
+
+        /* About Section */
+        .about {
+            background-color: var(--background);
+        }
+
+        .about-content {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .about-content p {
+            font-size: 1.1rem;
+            color: var(--muted-light);
+            margin-bottom: 1.5rem;
+            line-height: 1.8;
+        }
+
+        /* Services Section */
+        .services {
+            background-color: var(--secondary);
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 1.5rem;
+        }
+
+        @media (min-width: 768px) {
+            .services-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (min-width: 1024px) {
+            .services-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
+        .service-card {
+            background-color: var(--foreground);
+            color: var(--background);
+            padding: 1.5rem;
+            border-radius: 0.5rem;
+            transition: box-shadow 0.2s;
+        }
+
+        .service-card:hover {
+            box-shadow: 0 10px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .service-icon {
+            width: 2rem;
+            height: 2rem;
+            color: var(--primary);
+            margin-bottom: 1rem;
+        }
+
+        .service-card h3 {
+            font-size: 1.125rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .service-card p {
+            font-size: 0.95rem;
+            color: var(--muted);
+            margin-bottom: 1rem;
+        }
+
+        .service-card a {
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.2s;
+        }
+
+        .service-card a:hover {
+            color: var(--primary-dark);
+        }
+
+        /* How It Works */
+        .how-it-works {
+            background-color: var(--background);
+        }
+
+        .steps-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 2rem;
+        }
+
+        @media (min-width: 768px) {
+            .steps-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
+        .step {
+            text-align: center;
+        }
+
+        .step-number {
+            width: 3rem;
+            height: 3rem;
+            background-color: var(--primary);
+            color: var(--background);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 1.25rem;
+            margin: 0 auto 1rem;
+        }
+
+        .step h3 {
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .step p {
+            font-size: 0.95rem;
+            color: var(--muted);
+        }
+
+        /* CTA Section */
+        .cta-section {
+            padding: 3rem 0;
+            background-color: var(--secondary);
+            text-align: center;
+        }
+
+        @media (min-width: 768px) {
+            .cta-section {
+                padding: 4rem 0;
+            }
+        }
+
+        .cta-section h2 {
+            font-size: 2rem;
+            font-weight: bold;
+            margin-bottom: 1rem;
+        }
+
+        .cta-section p {
+            max-width: 40rem;
+            margin: 0 auto 1.5rem;
+            color: var(--muted-light);
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--secondary);
+            border-top: 1px solid rgba(226, 232, 240, 0.2);
+            padding: 2rem 0;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        @media (min-width: 768px) {
+            .footer-content {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        .footer-section h4 {
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+
+        .footer-section p {
+            font-size: 0.95rem;
+            color: var(--muted-light);
+            margin-bottom: 0.5rem;
+        }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(226, 232, 240, 0.2);
+            padding-top: 2rem;
+            text-align: center;
+            font-size: 0.875rem;
+            color: var(--muted);
+        }
+
+        .footer-bottom p {
+            margin-bottom: 0.5rem;
+        }
+
+        /* SVG Icons */
+        svg {
+            display: inline-block;
+            vertical-align: middle;
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 640px) {
+            .hero-text h1 {
+                font-size: 1.75rem;
+            }
+
+            .section-title {
+                font-size: 1.5rem;
+            }
+
+            .cta-section h2 {
+                font-size: 1.5rem;
+            }
+
+            .btn {
+                width: 100%;
+            }
+
+            .hero-buttons {
+                width: 100%;
+            }
+
+            .hero-buttons .btn {
+                width: 100%;
+            }
         }
     </style>
 </head>
 <body>
+    <!-- Header -->
     <header>
         <div class="container">
-            <nav>
-                <a href="#" class="logo">LOCALCRED</a>
-                <ul class="nav-menu" id="nav-menu">
-                    <li><a href="#sobre">Quem Somos</a></li>
-                    <li><a href="#servicos">Serviços</a></li>
-                    <li><a href="#compliance">Compliance</a></li>
-                    <li><a href="#regulatorio">Regulatório</a></li>
-                    <li><a href="#faq">FAQ</a></li>
-                    <li><a href="#contato">Contato</a></li>
-                </ul>
-                <button class="mobile-menu-btn" id="mobile-btn">☰</button>
-            </nav>
+            <div class="header-content">
+                <div class="logo">
+                    <div class="logo-circle">F</div>
+                    <span class="logo-text">Atendimento Financeiro</span>
+                </div>
+                <nav>
+                    <a href="#sobre">Sobre</a>
+                    <a href="#servicos">Serviços</a>
+                    <a href="#contato">Contato</a>
+                </nav>
+                <a href="https://wa.me/5599662638?text=Olá, gostaria de informações." class="btn btn-primary">WhatsApp</a>
+            </div>
         </div>
     </header>
 
-    <!-- HERO -->
+    <!-- Hero Section -->
     <section class="hero">
-        <div class="container" style="position:relative;z-index:2;">
+        <div class="container">
             <div class="hero-content">
-                <h1>LOCALCRED CALLCENTER</h1>
-                <p>Especialistas em teleatendimento, BPO e soluções de relacionamento com clientes para empresas.</p>
-                <div style="margin-top:2rem;">
-                    <a href="#servicos" class="btn">Nossos Serviços</a>
+                <div class="hero-text">
+                    <span class="hero-badge">Atendimento Profissional</span>
+                    <h1>Suporte Financeiro Completo</h1>
+                    <p class="hero-description">
+                        Atendimento especializado para suas necessidades financeiras. Entre em contato conosco via WhatsApp para mais informações.
+                    </p>
+                    <div class="hero-buttons">
+                        <a href="https://wa.me/5599662638?text=Olá, gostaria de mais informações." class="btn btn-primary">Solicitar Informações</a>
+                        <a href="https://wa.me/5599662638?text=Olá, gostaria de falar com um atendente." class="btn btn-outline">Falar com Atendente</a>
+                    </div>
                 </div>
-                <p style="margin-top:3rem;font-size:1.05rem;">CNPJ 24.282.653/0001-79</p>
+                <div class="hero-cards">
+                    <div class="card">
+                        <svg class="card-icon" fill="currentColor" viewBox="0 0 20 20"><path d="M4 4a2 2 0 012-2h4.586A2 2 0 0112 2.414l4 4v10.172A2 2 0 0114.172 18H6a2 2 0 01-2-2V4z"/></svg>
+                        <div class="card-title">Atendimento Rápido</div>
+                        <div class="card-description">Resposta ágil às suas solicitações.</div>
+                    </div>
+                    <div class="card">
+                        <svg class="card-icon" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M5 9V7a5 5 0 0110 0v2a2 2 0 012 2v5a2 2 0 01-2 2H5a2 2 0 01-2-2v-5a2 2 0 012-2zm8-2v2H7V7a3 3 0 016 0z" clip-rule="evenodd"/></svg>
+                        <div class="card-title">Segurança</div>
+                        <div class="card-description">Proteção completa dos seus dados.</div>
+                    </div>
+                    <div class="card">
+                        <svg class="card-icon" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M4 4a2 2 0 00-2 2v4a1 1 0 001 1h12a1 1 0 001-1V6a2 2 0 00-2-2H4zm0 6a1 1 0 001 1h6a1 1 0 001-1v-1a1 1 0 011 1v3a2 2 0 01-2 2H4a2 2 0 01-2-2v-3a1 1 0 011-1z" clip-rule="evenodd"/></svg>
+                        <div class="card-title">Profissionalismo</div>
+                        <div class="card-description">Equipe especializada e experiente.</div>
+                    </div>
+                    <div class="card">
+                        <svg class="card-icon" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg>
+                        <div class="card-title">Confiabilidade</div>
+                        <div class="card-description">Soluções comprovadas e eficientes.</div>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- SOBRE -->
-    <section id="sobre">
+    <!-- About Section -->
+    <section class="section about" id="sobre">
         <div class="container">
-            <h2 class="section-title">Quem Somos</h2>
-            <div style="max-width:900px;margin:0 auto;text-align:center;font-size:1.15rem;">
-                <p>A <strong>LOCALCRED CALLCENTER, TELEATENDIMENTO E TELESSERVIÇOS LTDA</strong> é especializada em serviços empresariais de teleatendimento, cobrança, recuperação de crédito e BPO.</p>
-                <p style="margin-top:1.5rem;">Atuamos com transparência, ética e total conformidade com a legislação brasileira.</p>
+            <h2 class="section-title">Sobre Nós</h2>
+            <div class="about-content">
+                <p>
+                    Somos uma central de atendimento financeiro dedicada a fornecer suporte profissional e especializado para suas necessidades. Nossa equipe está sempre pronta para ajudar você com informações e orientações.
+                </p>
+                <p>
+                    Utilizamos WhatsApp para garantir um atendimento rápido, seguro e acessível. Entre em contato conosco a qualquer momento para esclarecer dúvidas e receber orientações personalizadas.
+                </p>
             </div>
         </div>
     </section>
 
-    <!-- SERVIÇOS -->
-    <section id="servicos" style="background:#f8fafc;">
+    <!-- Services Section -->
+    <section class="section services" id="servicos">
         <div class="container">
-            <h2 class="section-title">Serviços</h2>
+            <h2 class="section-title">Nossos Serviços</h2>
+            <p class="section-subtitle">Oferecemos atendimento especializado em diversas áreas.</p>
             <div class="services-grid">
-                <div class="service-card"><strong>Teleatendimento</strong><br>Ativo e receptivo</div>
-                <div class="service-card"><strong>Cobrança Ética</strong><br>Recuperação de crédito</div>
-                <div class="service-card"><strong>BPO</strong><br>Terceirização de processos</div>
-                <div class="service-card"><strong>Promoção de Vendas</strong><br>Campanhas comerciais</div>
-                <div class="service-card"><strong>Relacionamento com Clientes</strong><br>CRM e fidelização</div>
-                <div class="service-card"><strong>Suporte Administrativo</strong><br>Backoffice completo</div>
-            </div>
-        </div>
-    </section>
-
-    <!-- COMPLIANCE -->
-    <section id="compliance">
-        <div class="container">
-            <h2 class="section-title">Compliance</h2>
-            <div style="max-width:800px;margin:0 auto;background:#f8fafc;padding:3rem;border-radius:16px;">
-                <p style="font-size:1.1rem;text-align:center;">Compromisso com a LGPD, ética empresarial e transparência em todas as operações.</p>
-            </div>
-        </div>
-    </section>
-
-    <!-- REGULATÓRIO -->
-    <section id="regulatorio" style="background:#f8fafc;">
-        <div class="container">
-            <h2 class="section-title">Informações Regulatórias</h2>
-            <div style="max-width:800px;margin:0 auto;background:white;padding:3rem;border-radius:16px;text-align:center;">
-                <p><strong>A LOCALCRED NÃO é operadora de telecomunicações.</strong></p>
-                <p style="margin-top:1.5rem;">Não possuímos autorização da Anatel porque não prestamos serviços de telecomunicações. Atuamos exclusivamente com serviços de BPO e teleatendimento empresarial.</p>
-            </div>
-        </div>
-    </section>
-
-    <!-- FAQ -->
-    <section id="faq">
-        <div class="container">
-            <h2 class="section-title">Perguntas Frequentes</h2>
-            <div style="max-width:800px;margin:0 auto;">
-                <div class="faq-item active" id="faq1">
-                    <div class="faq-question">Quem é a LOCALCRED? <span>+</span></div>
-                    <div class="faq-answer">Empresa especializada em serviços de teleatendimento e BPO para o mercado corporativo.</div>
+                <div class="service-card">
+                    <svg class="service-icon" fill="currentColor" viewBox="0 0 20 20"><path d="M4 4a2 2 0 012-2h4.586A2 2 0 0112 2.414l4 4v10.172A2 2 0 0114.172 18H6a2 2 0 01-2-2V4z"/></svg>
+                    <h3>Consultas</h3>
+                    <p>Informações e orientações sobre suas questões financeiras.</p>
+                    <a href="https://wa.me/5599662638?text=Olá, gostaria de fazer uma consulta.">Consultar</a>
                 </div>
-                <div class="faq-item" id="faq2">
-                    <div class="faq-question">Vocês prestam serviços de telefonia? <span>+</span></div>
-                    <div class="faq-answer">Não. Não somos operadora de telecomunicações.</div>
+                <div class="service-card">
+                    <svg class="service-icon" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M4 4a2 2 0 00-2 2v4a1 1 0 001 1h12a1 1 0 001-1V6a2 2 0 00-2-2H4zm0 6a1 1 0 001 1h6a1 1 0 001-1v-1a1 1 0 011 1v3a2 2 0 01-2 2H4a2 2 0 01-2-2v-3a1 1 0 011-1z" clip-rule="evenodd"/></svg>
+                    <h3>Suporte</h3>
+                    <p>Atendimento técnico e administrativo para suas necessidades.</p>
+                    <a href="https://wa.me/5599662638?text=Olá, preciso de suporte.">Solicitar Suporte</a>
+                </div>
+                <div class="service-card">
+                    <svg class="service-icon" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z" clip-rule="evenodd"/></svg>
+                    <h3>Informações</h3>
+                    <p>Esclarecimento de dúvidas e informações detalhadas.</p>
+                    <a href="https://wa.me/5599662638?text=Olá, gostaria de informações.">Mais Informações</a>
+                </div>
+                <div class="service-card">
+                    <svg class="service-icon" fill="currentColor" viewBox="0 0 20 20"><path d="M2 11a1 1 0 011-1h2a1 1 0 011 1v5a1 1 0 01-1 1H3a1 1 0 01-1-1v-5zM8 7a1 1 0 011-1h2a1 1 0 011 1v9a1 1 0 01-1 1H9a1 1 0 01-1-1V7zM14 4a1 1 0 011-1h2a1 1 0 011 1v12a1 1 0 01-1 1h-2a1 1 0 01-1-1V4z"/></svg>
+                    <h3>Análise</h3>
+                    <p>Análise profissional de suas situações financeiras.</p>
+                    <a href="https://wa.me/5599662638?text=Olá, gostaria de uma análise.">Solicitar Análise</a>
+                </div>
+                <div class="service-card">
+                    <svg class="service-icon" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg>
+                    <h3>Orientação</h3>
+                    <p>Orientações especializadas para suas decisões financeiras.</p>
+                    <a href="https://wa.me/5599662638?text=Olá, gostaria de orientação.">Obter Orientação</a>
+                </div>
+                <div class="service-card">
+                    <svg class="service-icon" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M5 9V7a5 5 0 0110 0v2a2 2 0 012 2v5a2 2 0 01-2 2H5a2 2 0 01-2-2v-5a2 2 0 012-2zm8-2v2H7V7a3 3 0 016 0z" clip-rule="evenodd"/></svg>
+                    <h3>Segurança</h3>
+                    <p>Proteção e segurança em todas as transações.</p>
+                    <a href="https://wa.me/5599662638?text=Olá, gostaria de informações sobre segurança.">Saiba Mais</a>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- CONTATO -->
-    <section id="contato">
+    <!-- How It Works -->
+    <section class="section how-it-works">
         <div class="container">
-            <h2 class="section-title" style="color:white;">Contato</h2>
-            <div style="max-width:600px;margin:0 auto;">
-                <form id="contact-form">
-                    <input type="text" placeholder="Seu nome" required>
-                    <input type="email" placeholder="Seu e-mail" required>
-                    <textarea rows="5" placeholder="Sua mensagem..." required></textarea>
-                    <button type="submit" style="background:var(--accent);color:white;padding:16px;border:none;border-radius:8px;cursor:pointer;width:100%;font-size:1.1rem;">Enviar Mensagem</button>
-                </form>
-            </div>
-            
-            <div style="text-align:center;margin-top:3rem;color:#94a3b8;">
-                Rua Brigadeiro de Itapetininga, 275 • 10º andar • República<br>
-                São Paulo - SP, 01042-001 • CNPJ 24.282.653/0001-79
+            <h2 class="section-title">Como Funciona</h2>
+            <p class="section-subtitle">Processo simples e rápido para obter atendimento.</p>
+            <div class="steps-grid">
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <h3>Acesse WhatsApp</h3>
+                    <p>Clique em qualquer botão de contato para iniciar uma conversa conosco.</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">2</div>
+                    <h3>Descreva Sua Necessidade</h3>
+                    <p>Explique qual é sua dúvida ou o que você precisa de forma clara.</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <h3>Receba Atendimento</h3>
+                    <p>Nossa equipe responderá com informações e orientações personalizadas.</p>
+                </div>
             </div>
         </div>
     </section>
 
+    <!-- CTA Section -->
+    <section class="cta-section" id="contato">
+        <div class="container">
+            <h2>Pronto para Conversar?</h2>
+            <p>Entre em contato conosco agora via WhatsApp e receba atendimento especializado.</p>
+            <a href="https://wa.me/5599662638?text=Olá, gostaria de atendimento." class="btn btn-primary">Iniciar Conversa no WhatsApp</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
     <footer>
-        <div class="container" style="text-align:center;">
-            <p>© 2026 LOCALCRED CALLCENTER, TELEATENDIMENTO E TELESSERVIÇOS LTDA. Todos os direitos reservados.</p>
-            <p style="margin-top:1rem;font-size:0.9rem;opacity:0.7;">Site com finalidade exclusivamente institucional.</p>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <div style="display: flex; align-items: center; gap: 0.5rem; margin-bottom: 1rem;">
+                        <div class="logo-circle" style="width: 2rem; height: 2rem; font-size: 1rem;">F</div>
+                        <span style="font-weight: 600;">Atendimento Financeiro</span>
+                    </div>
+                    <p>Central de atendimento especializado em questões financeiras. Disponível via WhatsApp para sua conveniência.</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Entre em Contato</h4>
+                    <p>WhatsApp: (55) 9966-2638</p>
+                    <p>Atendimento disponível para esclarecer dúvidas e fornecer informações.</p>
+                    <a href="https://wa.me/5599662638?text=Olá, gostaria de atendimento." class="btn btn-primary" style="margin-top: 1rem;">Iniciar Conversa</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>© 2026 Atendimento Financeiro. Todos os direitos reservados.</p>
+                <p>Proteção de dados e segurança garantidas em todas as comunicações.</p>
+            </div>
         </div>
     </footer>
-
-    <script>
-        // Mobile menu
-        document.getElementById('mobile-btn').addEventListener('click', () => {
-            const menu = document.getElementById('nav-menu');
-            menu.style.display = menu.style.display === 'flex' ? 'none' : 'flex';
-        });
-        
-        // FAQ
-        document.querySelectorAll('.faq-item').forEach(item => {
-            item.querySelector('.faq-question').addEventListener('click', () => {
-                document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('active'));
-                item.classList.add('active');
-            });
-        });
-        
-        // Form
-        document.getElementById('contact-form').addEventListener('submit', function(e) {
-            e.preventDefault();
-            alert('Mensagem enviada com sucesso!');
-            this.reset();
-        });
-        
-        // Smooth scroll
-        document.querySelectorAll('a[href^="#"]').forEach(a => {
-            a.addEventListener('click', e => {
-                e.preventDefault();
-                const target = document.querySelector(a.getAttribute('href'));
-                if (target) target.scrollIntoView({ behavior: 'smooth' });
-            });
-        });
-    </script>
 </body>
 </html>
