@@ -3,8 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Atendimento Financeiro</title>
-    <meta name="description" content="Central de atendimento financeiro. Fale conosco via WhatsApp.">
+    <title>Atendimento Especializado - Emissão e Solicitação</title>
+    <meta name="description" content="Atendimento especializado em emissão e solicitação de serviços. Fale conosco via WhatsApp.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <style>
         * {
             margin: 0;
@@ -13,14 +16,20 @@
         }
 
         :root {
-            --primary: #22c55e;
-            --primary-dark: #16a34a;
-            --background: #0f1f3c;
-            --secondary: #1a2b4a;
+            --primary: #003B8A;
+            --primary-dark: #002D6B;
+            --primary-light: #1a5bc4;
+            --accent: #007BFF;
+            --background: #ffffff;
+            --secondary-bg: #f0f4fa;
+            --dark-section: #001B3A;
             --foreground: #ffffff;
-            --muted: #64748b;
-            --muted-light: #e2e8f0;
+            --text-dark: #1a2b4a;
+            --text-light: #4a5568;
+            --text-muted: #64748b;
             --border: #e2e8f0;
+            --whatsapp: #25D366;
+            --whatsapp-dark: #128C7E;
         }
 
         html {
@@ -30,7 +39,7 @@
         body {
             font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
             background-color: var(--background);
-            color: var(--foreground);
+            color: var(--text-dark);
             line-height: 1.6;
         }
 
@@ -58,50 +67,53 @@
             top: 0;
             z-index: 50;
             background-color: var(--background);
-            border-bottom: 1px solid rgba(226, 232, 240, 0.2);
+            border-bottom: 1px solid rgba(0, 59, 138, 0.1);
+            box-shadow: 0 1px 3px rgba(0, 59, 138, 0.05);
         }
 
         .header-content {
             display: flex;
             align-items: center;
             justify-content: space-between;
-            height: 4rem;
+            height: 4.5rem;
         }
 
         .logo {
             display: flex;
             align-items: center;
-            gap: 0.5rem;
+            gap: 0.75rem;
         }
 
-        .logo-circle {
-            width: 2.5rem;
-            height: 2.5rem;
-            background-color: var(--primary);
-            border-radius: 50%;
+        .logo-icon {
+            width: 2.75rem;
+            height: 2.75rem;
+            background: linear-gradient(135deg, var(--primary), var(--accent));
+            border-radius: 0.5rem;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-weight: bold;
-            font-size: 1.125rem;
-            color: var(--background);
+        }
+
+        .logo-icon svg {
+            width: 1.5rem;
+            height: 1.5rem;
+            fill: white;
         }
 
         .logo-text {
             font-size: 1.125rem;
-            font-weight: bold;
-            display: none;
+            font-weight: 700;
+            color: var(--primary);
+            letter-spacing: -0.025em;
         }
 
-        @media (min-width: 640px) {
-            .logo-text {
-                display: inline;
-            }
+        .logo-text span {
+            color: var(--accent);
         }
 
         nav {
             display: none;
-            gap: 1.5rem;
+            gap: 2rem;
             align-items: center;
         }
 
@@ -113,113 +125,160 @@
 
         nav a {
             font-size: 0.875rem;
-            color: var(--muted);
+            font-weight: 500;
+            color: var(--text-muted);
             text-decoration: none;
             transition: color 0.2s;
+            position: relative;
+        }
+
+        nav a::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--primary);
+            transition: width 0.3s;
         }
 
         nav a:hover {
-            color: var(--foreground);
+            color: var(--primary);
+        }
+
+        nav a:hover::after {
+            width: 100%;
         }
 
         .btn {
             padding: 0.625rem 1.5rem;
             border: none;
             border-radius: 0.5rem;
-            font-size: 1rem;
-            font-weight: 500;
+            font-size: 0.9rem;
+            font-weight: 600;
             cursor: pointer;
             text-decoration: none;
-            display: inline-block;
-            transition: all 0.2s;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: all 0.3s ease;
             text-align: center;
         }
 
         .btn-primary {
             background-color: var(--primary);
-            color: var(--background);
+            color: var(--foreground);
         }
 
         .btn-primary:hover {
             background-color: var(--primary-dark);
-            transform: scale(1.05);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0, 59, 138, 0.3);
         }
 
         .btn-primary:active {
-            transform: scale(0.97);
+            transform: translateY(0);
         }
 
         .btn-outline {
             background-color: transparent;
             color: var(--primary);
-            border: 1px solid var(--primary);
+            border: 2px solid var(--primary);
         }
 
         .btn-outline:hover {
-            background-color: rgba(34, 197, 94, 0.1);
-        }
-
-        .btn-secondary {
-            background-color: var(--secondary);
+            background-color: var(--primary);
             color: var(--foreground);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0, 59, 138, 0.3);
         }
 
-        .btn-secondary:hover {
-            background-color: rgba(26, 43, 74, 0.8);
+        .btn-whatsapp {
+            background-color: var(--whatsapp);
+            color: white;
+        }
+
+        .btn-whatsapp:hover {
+            background-color: var(--whatsapp-dark);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(37, 211, 102, 0.3);
         }
 
         /* Hero Section */
         .hero {
-            background-color: var(--secondary);
-            padding: 3rem 0;
+            background: linear-gradient(135deg, rgba(0, 27, 58, 0.92) 0%, rgba(0, 59, 138, 0.88) 100%),
+                        url('hero-bg.jpg') center center / cover no-repeat;
+            padding: 4rem 0 5rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -20%;
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(26, 91, 196, 0.15) 0%, transparent 70%);
+            border-radius: 50%;
+        }
+
+        .hero::after {
+            content: '';
+            position: absolute;
+            bottom: -30%;
+            left: -10%;
+            width: 400px;
+            height: 400px;
+            background: radial-gradient(circle, rgba(0, 123, 255, 0.08) 0%, transparent 70%);
+            border-radius: 50%;
         }
 
         @media (min-width: 768px) {
             .hero {
-                padding: 5rem 0;
+                padding: 6rem 0 7rem;
             }
         }
 
         .hero-content {
             display: grid;
-            gap: 2rem;
+            gap: 3rem;
             align-items: center;
+            position: relative;
+            z-index: 1;
         }
 
         @media (min-width: 768px) {
             .hero-content {
-                grid-template-columns: 1fr 1fr;
+                grid-template-columns: 1.2fr 1fr;
             }
         }
 
         .hero-text h1 {
-            font-size: 2rem;
-            font-weight: bold;
-            margin-bottom: 1rem;
-            line-height: 1.2;
+            font-size: 2.25rem;
+            font-weight: 800;
+            margin-bottom: 1.25rem;
+            line-height: 1.15;
+            color: var(--foreground);
         }
 
         @media (min-width: 768px) {
             .hero-text h1 {
-                font-size: 3rem;
+                font-size: 3.25rem;
             }
         }
 
-        .hero-badge {
-            display: inline-block;
-            background-color: rgba(34, 197, 94, 0.2);
-            color: var(--primary);
-            padding: 0.25rem 0.75rem;
-            border-radius: 9999px;
-            font-size: 0.875rem;
-            font-weight: 500;
-            margin-bottom: 1rem;
+        .hero-text h1 .highlight {
+            color: var(--accent);
         }
 
         .hero-description {
             font-size: 1.125rem;
-            color: var(--muted-light);
-            margin-bottom: 1.5rem;
+            color: rgba(255, 255, 255, 0.85);
+            margin-bottom: 2rem;
+            max-width: 500px;
         }
 
         .hero-buttons {
@@ -237,7 +296,7 @@
         .hero-cards {
             display: none;
             grid-template-columns: repeat(2, 1fr);
-            gap: 0.75rem;
+            gap: 1rem;
         }
 
         @media (min-width: 768px) {
@@ -247,23 +306,35 @@
         }
 
         .card {
-            background-color: var(--foreground);
-            color: var(--background);
+            background: rgba(255, 255, 255, 0.08);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            color: var(--foreground);
             padding: 1.5rem;
-            border-radius: 0.5rem;
-            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
-            transition: box-shadow 0.2s;
+            border-radius: 0.75rem;
+            transition: all 0.3s;
         }
 
         .card:hover {
-            box-shadow: 0 10px 15px rgba(0, 0, 0, 0.2);
+            background: rgba(255, 255, 255, 0.12);
+            transform: translateY(-3px);
         }
 
         .card-icon {
+            width: 2.5rem;
+            height: 2.5rem;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 0.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 0.75rem;
+        }
+
+        .card-icon svg {
             width: 1.25rem;
             height: 1.25rem;
-            color: var(--primary);
-            margin-bottom: 0.5rem;
+            fill: var(--accent);
         }
 
         .card-title {
@@ -274,54 +345,38 @@
 
         .card-description {
             font-size: 0.8rem;
-            color: var(--muted);
+            color: rgba(255, 255, 255, 0.7);
         }
 
         /* Section */
         .section {
-            padding: 3rem 0;
+            padding: 4rem 0;
         }
 
         @media (min-width: 768px) {
             .section {
-                padding: 4rem 0;
+                padding: 5rem 0;
             }
         }
 
         .section-title {
             font-size: 2rem;
-            font-weight: bold;
+            font-weight: 700;
             text-align: center;
             margin-bottom: 0.5rem;
+            color: var(--primary);
         }
 
         .section-subtitle {
             text-align: center;
-            color: var(--muted);
-            margin-bottom: 2rem;
-        }
-
-        /* About Section */
-        .about {
-            background-color: var(--background);
-        }
-
-        .about-content {
-            max-width: 800px;
-            margin: 0 auto;
-            text-align: center;
-        }
-
-        .about-content p {
-            font-size: 1.1rem;
-            color: var(--muted-light);
-            margin-bottom: 1.5rem;
-            line-height: 1.8;
+            color: var(--text-muted);
+            margin-bottom: 3rem;
+            font-size: 1.05rem;
         }
 
         /* Services Section */
         .services {
-            background-color: var(--secondary);
+            background-color: var(--secondary-bg);
         }
 
         .services-grid {
@@ -343,45 +398,66 @@
         }
 
         .service-card {
-            background-color: var(--foreground);
-            color: var(--background);
-            padding: 1.5rem;
-            border-radius: 0.5rem;
-            transition: box-shadow 0.2s;
+            background-color: var(--background);
+            padding: 2rem 1.5rem;
+            border-radius: 0.75rem;
+            border: 1px solid var(--border);
+            transition: all 0.3s;
+            display: flex;
+            flex-direction: column;
         }
 
         .service-card:hover {
-            box-shadow: 0 10px 15px rgba(0, 0, 0, 0.2);
+            transform: translateY(-4px);
+            box-shadow: 0 12px 24px rgba(0, 59, 138, 0.1);
+            border-color: var(--primary);
         }
 
         .service-icon {
-            width: 2rem;
-            height: 2rem;
-            color: var(--primary);
-            margin-bottom: 1rem;
+            width: 3rem;
+            height: 3rem;
+            background: linear-gradient(135deg, var(--primary), var(--accent));
+            border-radius: 0.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1.25rem;
+        }
+
+        .service-icon svg {
+            width: 1.5rem;
+            height: 1.5rem;
+            fill: white;
         }
 
         .service-card h3 {
             font-size: 1.125rem;
             font-weight: 600;
             margin-bottom: 0.5rem;
+            color: var(--text-dark);
         }
 
         .service-card p {
-            font-size: 0.95rem;
-            color: var(--muted);
-            margin-bottom: 1rem;
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            margin-bottom: 1.25rem;
+            flex-grow: 1;
         }
 
         .service-card a {
             color: var(--primary);
             text-decoration: none;
-            font-weight: 500;
-            transition: color 0.2s;
+            font-weight: 600;
+            font-size: 0.9rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.25rem;
+            transition: all 0.2s;
         }
 
         .service-card a:hover {
-            color: var(--primary-dark);
+            color: var(--accent);
+            gap: 0.5rem;
         }
 
         /* How It Works */
@@ -403,62 +479,91 @@
 
         .step {
             text-align: center;
+            padding: 2rem 1.5rem;
+            border-radius: 0.75rem;
+            background: var(--secondary-bg);
+            border: 1px solid var(--border);
         }
 
         .step-number {
-            width: 3rem;
-            height: 3rem;
-            background-color: var(--primary);
-            color: var(--background);
+            width: 3.5rem;
+            height: 3.5rem;
+            background: linear-gradient(135deg, var(--primary), var(--accent));
+            color: var(--foreground);
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-weight: bold;
+            font-weight: 700;
             font-size: 1.25rem;
-            margin: 0 auto 1rem;
+            margin: 0 auto 1.25rem;
         }
 
         .step h3 {
             font-weight: 600;
             margin-bottom: 0.5rem;
+            color: var(--text-dark);
         }
 
         .step p {
-            font-size: 0.95rem;
-            color: var(--muted);
+            font-size: 0.9rem;
+            color: var(--text-muted);
         }
 
         /* CTA Section */
         .cta-section {
-            padding: 3rem 0;
-            background-color: var(--secondary);
+            padding: 4rem 0;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--dark-section) 100%);
             text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
         }
 
         @media (min-width: 768px) {
             .cta-section {
-                padding: 4rem 0;
+                padding: 5rem 0;
             }
+        }
+
+        .cta-content {
+            position: relative;
+            z-index: 1;
         }
 
         .cta-section h2 {
             font-size: 2rem;
-            font-weight: bold;
+            font-weight: 700;
             margin-bottom: 1rem;
+            color: var(--foreground);
+        }
+
+        @media (min-width: 768px) {
+            .cta-section h2 {
+                font-size: 2.5rem;
+            }
         }
 
         .cta-section p {
             max-width: 40rem;
-            margin: 0 auto 1.5rem;
-            color: var(--muted-light);
+            margin: 0 auto 2rem;
+            color: rgba(255, 255, 255, 0.85);
+            font-size: 1.1rem;
         }
 
         /* Footer */
         footer {
-            background-color: var(--secondary);
-            border-top: 1px solid rgba(226, 232, 240, 0.2);
-            padding: 2rem 0;
+            background-color: var(--dark-section);
+            padding: 3rem 0 1.5rem;
         }
 
         .footer-content {
@@ -470,37 +575,105 @@
 
         @media (min-width: 768px) {
             .footer-content {
-                grid-template-columns: 1fr 1fr;
+                grid-template-columns: 2fr 1fr;
             }
         }
 
         .footer-section h4 {
             font-weight: 600;
             margin-bottom: 1rem;
+            color: var(--foreground);
         }
 
         .footer-section p {
-            font-size: 0.95rem;
-            color: var(--muted-light);
+            font-size: 0.9rem;
+            color: rgba(255, 255, 255, 0.7);
             margin-bottom: 0.5rem;
+            line-height: 1.7;
+        }
+
+        .footer-logo {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            margin-bottom: 1rem;
+        }
+
+        .footer-logo-icon {
+            width: 2.25rem;
+            height: 2.25rem;
+            background: linear-gradient(135deg, var(--primary), var(--accent));
+            border-radius: 0.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .footer-logo-icon svg {
+            width: 1.25rem;
+            height: 1.25rem;
+            fill: white;
         }
 
         .footer-bottom {
-            border-top: 1px solid rgba(226, 232, 240, 0.2);
-            padding-top: 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding-top: 1.5rem;
             text-align: center;
-            font-size: 0.875rem;
-            color: var(--muted);
+            font-size: 0.85rem;
+            color: rgba(255, 255, 255, 0.5);
         }
 
         .footer-bottom p {
-            margin-bottom: 0.5rem;
+            margin-bottom: 0.25rem;
         }
 
         /* SVG Icons */
         svg {
             display: inline-block;
             vertical-align: middle;
+        }
+
+        /* Floating WhatsApp Button */
+        .whatsapp-float {
+            position: fixed;
+            bottom: 1.5rem;
+            right: 1.5rem;
+            z-index: 999;
+            width: 3.75rem;
+            height: 3.75rem;
+            background-color: var(--whatsapp);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 15px rgba(37, 211, 102, 0.4);
+            transition: all 0.3s ease;
+            animation: pulse 2s infinite;
+            text-decoration: none;
+        }
+
+        .whatsapp-float:hover {
+            transform: scale(1.1);
+            box-shadow: 0 6px 20px rgba(37, 211, 102, 0.5);
+            animation: none;
+        }
+
+        .whatsapp-float svg {
+            width: 2rem;
+            height: 2rem;
+            fill: white;
+        }
+
+        @keyframes pulse {
+            0% {
+                box-shadow: 0 4px 15px rgba(37, 211, 102, 0.4);
+            }
+            50% {
+                box-shadow: 0 4px 25px rgba(37, 211, 102, 0.6);
+            }
+            100% {
+                box-shadow: 0 4px 15px rgba(37, 211, 102, 0.4);
+            }
         }
 
         /* Responsive adjustments */
@@ -519,6 +692,7 @@
 
             .btn {
                 width: 100%;
+                justify-content: center;
             }
 
             .hero-buttons {
@@ -527,6 +701,13 @@
 
             .hero-buttons .btn {
                 width: 100%;
+            }
+
+            .whatsapp-float {
+                width: 3.5rem;
+                height: 3.5rem;
+                bottom: 1rem;
+                right: 1rem;
             }
         }
     </style>
@@ -537,15 +718,20 @@
         <div class="container">
             <div class="header-content">
                 <div class="logo">
-                    <div class="logo-circle">F</div>
-                    <span class="logo-text">Atendimento Financeiro</span>
+                    <div class="logo-icon">
+                        <svg viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+                    </div>
+                    <div class="logo-text">Atendimento <span>Especializado</span></div>
                 </div>
                 <nav>
-                    <a href="#sobre">Sobre</a>
                     <a href="#servicos">Serviços</a>
+                    <a href="#como-funciona">Como Funciona</a>
                     <a href="#contato">Contato</a>
                 </nav>
-                <a href="https://wa.me/5511926173420?text=Ol%C3%A1%2C%20preciso%20de%20atendimento." class="btn btn-primary">WhatsApp</a>
+                <a href="https://wa.me/5511926173420?text=Ol%C3%A1!%20Gostaria%20de%20informa%C3%A7%C3%B5es%20sobre%20atendimento." class="btn btn-primary">
+                    <svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.625.846 5.059 2.284 7.034L.789 23.492a.5.5 0 00.612.638l4.666-1.223A11.94 11.94 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-2.167 0-4.187-.648-5.887-1.763l-.412-.283-3.528.924.94-3.428-.313-.448A9.935 9.935 0 012 12C2 6.486 6.486 2 12 2s10 4.486 10 10-4.486 10-10 10z"/></svg>
+                    WhatsApp
+                </a>
             </div>
         </div>
     </header>
@@ -555,53 +741,48 @@
         <div class="container">
             <div class="hero-content">
                 <div class="hero-text">
-                    <span class="hero-badge">Atendimento Profissional</span>
-                    <h1>Suporte Financeiro Completo</h1>
+                    <h1>Emissão e solicitação de <span class="highlight">atendimento</span> de forma simples e rápida</h1>
                     <p class="hero-description">
-                        Atendimento especializado para suas necessidades financeiras. Entre em contato conosco via WhatsApp para mais informações.
+                        Solicite seu atendimento com agilidade e profissionalismo. Nossa equipe está pronta para ajudar você.
                     </p>
                     <div class="hero-buttons">
-                        <a href="https://wa.me/5511926173420?text=Ol%C3%A1%2C%20preciso%20de%20atendimento." class="btn btn-primary">Solicitar Informações</a>
-                        <a href="https://wa.me/5511926173420?text=Ol%C3%A1%2C%20preciso%20de%20atendimento." class="btn btn-outline">Falar com Atendente</a>
+                        <a href="https://wa.me/5511926173420?text=Ol%C3%A1!%20Gostaria%20de%20solicitar%20um%20atendimento." class="btn btn-whatsapp">
+                            <svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.625.846 5.059 2.284 7.034L.789 23.492a.5.5 0 00.612.638l4.666-1.223A11.94 11.94 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-2.167 0-4.187-.648-5.887-1.763l-.412-.283-3.528.924.94-3.428-.313-.448A9.935 9.935 0 012 12C2 6.486 6.486 2 12 2s10 4.486 10 10-4.486 10-10 10z"/></svg>
+                            Solicitar Atendimento
+                        </a>
+                        <a href="https://wa.me/5511926173420?text=Ol%C3%A1!%20Gostaria%20de%20solicitar%20emiss%C3%A3o%20de%20atendimento." class="btn btn-outline" style="color: white; border-color: white;">Solicitar Emissão</a>
                     </div>
                 </div>
                 <div class="hero-cards">
                     <div class="card">
-                        <svg class="card-icon" fill="currentColor" viewBox="0 0 20 20"><path d="M4 4a2 2 0 012-2h4.586A2 2 0 0112 2.414l4 4v10.172A2 2 0 0114.172 18H6a2 2 0 01-2-2V4z"/></svg>
+                        <div class="card-icon">
+                            <svg viewBox="0 0 24 24"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+                        </div>
                         <div class="card-title">Atendimento Rápido</div>
-                        <div class="card-description">Resposta ágil às suas solicitações.</div>
+                        <div class="card-description">Resposta em até 30 minutos.</div>
                     </div>
                     <div class="card">
-                        <svg class="card-icon" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M5 9V7a5 5 0 0110 0v2a2 2 0 012 2v5a2 2 0 01-2 2H5a2 2 0 01-2-2v-5a2 2 0 012-2zm8-2v2H7V7a3 3 0 016 0z" clip-rule="evenodd"/></svg>
-                        <div class="card-title">Segurança</div>
-                        <div class="card-description">Proteção completa dos seus dados.</div>
+                        <div class="card-icon">
+                            <svg viewBox="0 0 24 24"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4z"/></svg>
+                        </div>
+                        <div class="card-title">Segurança Total</div>
+                        <div class="card-description">Seus dados protegidos e seguros.</div>
                     </div>
                     <div class="card">
-                        <svg class="card-icon" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M4 4a2 2 0 00-2 2v4a1 1 0 001 1h12a1 1 0 001-1V6a2 2 0 00-2-2H4zm0 6a1 1 0 001 1h6a1 1 0 001-1v-1a1 1 0 011 1v3a2 2 0 01-2 2H4a2 2 0 01-2-2v-3a1 1 0 011-1z" clip-rule="evenodd"/></svg>
+                        <div class="card-icon">
+                            <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
+                        </div>
                         <div class="card-title">Profissionalismo</div>
-                        <div class="card-description">Equipe especializada e experiente.</div>
+                        <div class="card-description">Equipe especializada e qualificada.</div>
                     </div>
                     <div class="card">
-                        <svg class="card-icon" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg>
-                        <div class="card-title">Confiabilidade</div>
-                        <div class="card-description">Soluções comprovadas e eficientes.</div>
+                        <div class="card-icon">
+                            <svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+                        </div>
+                        <div class="card-title">Disponibilidade</div>
+                        <div class="card-description">Atendimento quando você precisar.</div>
                     </div>
                 </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- About Section -->
-    <section class="section about" id="sobre">
-        <div class="container">
-            <h2 class="section-title">Sobre Nós</h2>
-            <div class="about-content">
-                <p>
-                    Somos uma central de atendimento financeiro dedicada a fornecer suporte profissional e especializado para suas necessidades. Nossa equipe está sempre pronta para ajudar você com informações e orientações.
-                </p>
-                <p>
-                    Utilizamos WhatsApp para garantir um atendimento rápido, seguro e acessível. Entre em contato conosco a qualquer momento para esclarecer dúvidas e receber orientações personalizadas.
-                </p>
             </div>
         </div>
     </section>
@@ -610,68 +791,80 @@
     <section class="section services" id="servicos">
         <div class="container">
             <h2 class="section-title">Nossos Serviços</h2>
-            <p class="section-subtitle">Oferecemos atendimento especializado em diversas áreas.</p>
+            <p class="section-subtitle">Soluções completas em emissão e solicitação de atendimento.</p>
             <div class="services-grid">
                 <div class="service-card">
-                    <svg class="service-icon" fill="currentColor" viewBox="0 0 20 20"><path d="M4 4a2 2 0 012-2h4.586A2 2 0 0112 2.414l4 4v10.172A2 2 0 0114.172 18H6a2 2 0 01-2-2V4z"/></svg>
-                    <h3>Consultas</h3>
-                    <p>Informações e orientações sobre suas questões financeiras.</p>
-                    <a href="https://wa.me/5511926173420?text=Ol%C3%A1%2C%20preciso%20de%20atendimento.">Consultar</a>
+                    <div class="service-icon">
+                        <svg viewBox="0 0 24 24"><path d="M14 2H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V8l-6-6zM6 20V4h7v5h5v11H6z"/></svg>
+                    </div>
+                    <h3>Solicitação de Atendimento</h3>
+                    <p>Faça sua solicitação de atendimento de forma rápida e simplificada.</p>
+                    <a href="https://wa.me/5511926173420?text=Ol%C3%A1!%20Gostaria%20de%20solicitar%20um%20atendimento." class="service-link">Solicitar agora &rarr;</a>
                 </div>
                 <div class="service-card">
-                    <svg class="service-icon" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M4 4a2 2 0 00-2 2v4a1 1 0 001 1h12a1 1 0 001-1V6a2 2 0 00-2-2H4zm0 6a1 1 0 001 1h6a1 1 0 001-1v-1a1 1 0 011 1v3a2 2 0 01-2 2H4a2 2 0 01-2-2v-3a1 1 0 011-1z" clip-rule="evenodd"/></svg>
-                    <h3>Suporte</h3>
-                    <p>Atendimento técnico e administrativo para suas necessidades.</p>
-                    <a href="https://wa.me/5511926173420?text=Ol%C3%A1%2C%20preciso%20de%20atendimento.">Solicitar Suporte</a>
+                    <div class="service-icon">
+                        <svg viewBox="0 0 24 24"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-5 14H7v-2h7v2zm3-4H7v-2h10v2zm0-4H7V7h10v2z"/></svg>
+                    </div>
+                    <h3>Emissão de Documentos</h3>
+                    <p>Emissão rápida de documentos e relatórios com segurança e agilidade.</p>
+                    <a href="https://wa.me/5511926173420?text=Ol%C3%A1!%20Gostaria%20de%20emiss%C3%A3o%20de%20documento." class="service-link">Solicitar emissão &rarr;</a>
                 </div>
                 <div class="service-card">
-                    <svg class="service-icon" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z" clip-rule="evenodd"/></svg>
-                    <h3>Informações</h3>
-                    <p>Esclarecimento de dúvidas e informações detalhadas.</p>
-                    <a href="https://wa.me/5511926173420?text=Ol%C3%A1%2C%20preciso%20de%20atendimento.">Mais Informações</a>
+                    <div class="service-icon">
+                        <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"/></svg>
+                    </div>
+                    <h3>Consultoria Especializada</h3>
+                    <p>Nossos especialistas ajudam você a resolver suas necessidades de forma personalizada.</p>
+                    <a href="https://wa.me/5511926173420?text=Ol%C3%A1!%20Gostaria%20de%20consultoria%20especializada." class="service-link">Falar com especialista &rarr;</a>
                 </div>
                 <div class="service-card">
-                    <svg class="service-icon" fill="currentColor" viewBox="0 0 20 20"><path d="M2 11a1 1 0 011-1h2a1 1 0 011 1v5a1 1 0 01-1 1H3a1 1 0 01-1-1v-5zM8 7a1 1 0 011-1h2a1 1 0 011 1v9a1 1 0 01-1 1H9a1 1 0 01-1-1V7zM14 4a1 1 0 011-1h2a1 1 0 011 1v12a1 1 0 01-1 1h-2a1 1 0 01-1-1V4z"/></svg>
-                    <h3>Análise</h3>
-                    <p>Análise profissional de suas situações financeiras.</p>
-                    <a href="https://wa.me/5511926173420?text=Ol%C3%A1%2C%20preciso%20de%20atendimento.">Solicitar Análise</a>
+                    <div class="service-icon">
+                        <svg viewBox="0 0 24 24"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm-2 16l-4-4 1.41-1.41L10 14.17l6.59-6.59L18 9l-8 8z"/></svg>
+                    </div>
+                    <h3>Suporte e Acompanhamento</h3>
+                    <p>Acompanhamento completo de todas as suas solicitações e dúvidas.</p>
+                    <a href="https://wa.me/5511926173420?text=Ol%C3%A1!%20Preciso%20de%20acompanhamento." class="service-link">Preciso de suporte &rarr;</a>
                 </div>
                 <div class="service-card">
-                    <svg class="service-icon" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg>
-                    <h3>Orientação</h3>
-                    <p>Orientações especializadas para suas decisões financeiras.</p>
-                    <a href="https://wa.me/5511926173420?text=Ol%C3%A1%2C%20preciso%20de%20atendimento.">Obter Orientação</a>
+                    <div class="service-icon">
+                        <svg viewBox="0 0 24 24"><path d="M18.92 6.01C18.72 5.42 18.16 5 17.5 5h-11c-.66 0-1.21.42-1.42 1.01L3 12v8c0 .55.45 1 1 1h1c.55 0 1-.45 1-1v-1h12v1c0 .55.45 1 1 1h1c.55 0 1-.45 1-1v-8l-2.08-5.99zM6.5 16c-.83 0-1.5-.67-1.5-1.5S5.67 13 6.5 13s1.5.67 1.5 1.5S7.33 16 6.5 16zm11 0c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5zM5 11l1.5-4.5h11L19 11H5z"/></svg>
+                    </div>
+                    <h3>Processamento Rápido</h3>
+                    <p>Seu atendimento é processado com agilidade para sua conveniência.</p>
+                    <a href="https://wa.me/5511926173420?text=Ol%C3%A1!%20Gostaria%20de%20processar%20uma%20solicita%C3%A7%C3%A3o." class="service-link">Solicitar agora &rarr;</a>
                 </div>
                 <div class="service-card">
-                    <svg class="service-icon" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M5 9V7a5 5 0 0110 0v2a2 2 0 012 2v5a2 2 0 01-2 2H5a2 2 0 01-2-2v-5a2 2 0 012-2zm8-2v2H7V7a3 3 0 016 0z" clip-rule="evenodd"/></svg>
-                    <h3>Segurança</h3>
-                    <p>Proteção e segurança em todas as transações.</p>
-                    <a href="https://wa.me/5511926173420?text=Ol%C3%A1%2C%20preciso%20de%20atendimento.">Saiba Mais</a>
+                    <div class="service-icon">
+                        <svg viewBox="0 0 24 24"><path d="M17 1H7c-1.1 0-2 .9-2 2v18c0 1.1.9 2 2 2h10c1.1 0 2-.9 2-2V3c0-1.1-.9-2-2-2zm0 18H7V5h10v14z"/></svg>
+                    </div>
+                    <h3>Orientação e Esclarecimentos</h3>
+                    <p>Tire todas as suas dúvidas com nossa equipe de atendimento especializada.</p>
+                    <a href="https://wa.me/5511926173420?text=Ol%C3%A1!%20Gostaria%20de%20orienta%C3%A7%C3%A3o." class="service-link">Tirar dúvidas &rarr;</a>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- How It Works -->
-    <section class="section how-it-works">
+    <section class="section how-it-works" id="como-funciona">
         <div class="container">
             <h2 class="section-title">Como Funciona</h2>
-            <p class="section-subtitle">Processo simples e rápido para obter atendimento.</p>
+            <p class="section-subtitle">Em 3 passos simples você resolve sua solicitação.</p>
             <div class="steps-grid">
                 <div class="step">
                     <div class="step-number">1</div>
-                    <h3>Acesse WhatsApp</h3>
-                    <p>Clique em qualquer botão de contato para iniciar uma conversa conosco.</p>
+                    <h3>Entre em Contato</h3>
+                    <p>Chame no WhatsApp e explique o que você precisa de forma clara.</p>
                 </div>
                 <div class="step">
                     <div class="step-number">2</div>
-                    <h3>Descreva Sua Necessidade</h3>
-                    <p>Explique qual é sua dúvida ou o que você precisa de forma clara.</p>
+                    <h3>Análise e Processamento</h3>
+                    <p>Nossa equipe analisa sua solicitação e processa com agilidade.</p>
                 </div>
                 <div class="step">
                     <div class="step-number">3</div>
-                    <h3>Receba Atendimento</h3>
-                    <p>Nossa equipe responderá com informações e orientações personalizadas.</p>
+                    <h3>Conclusão Rápida</h3>
+                    <p>Receba sua resposta e documentação no menor tempo possível.</p>
                 </div>
             </div>
         </div>
@@ -680,9 +873,14 @@
     <!-- CTA Section -->
     <section class="cta-section" id="contato">
         <div class="container">
-            <h2>Pronto para Conversar?</h2>
-            <p>Entre em contato conosco agora via WhatsApp e receba atendimento especializado.</p>
-            <a href="https://wa.me/5511926173420?text=Ol%C3%A1%2C%20preciso%20de%20atendimento." class="btn btn-primary">Iniciar Conversa no WhatsApp</a>
+            <div class="cta-content">
+                <h2>Solicite seu atendimento agora</h2>
+                <p>Converse com nossos especialistas e resolva sua solicitação de forma rápida e eficiente.</p>
+                <a href="https://wa.me/5511926173420?text=Ol%C3%A1!%20Gostaria%20de%20solicitar%20um%20atendimento." class="btn btn-whatsapp" style="padding: 1rem 2.5rem; font-size: 1.1rem;">
+                    <svg width="22" height="22" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.625.846 5.059 2.284 7.034L.789 23.492a.5.5 0 00.612.638l4.666-1.223A11.94 11.94 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-2.167 0-4.187-.648-5.887-1.763l-.412-.283-3.528.924.94-3.428-.313-.448A9.935 9.935 0 012 12C2 6.486 6.486 2 12 2s10 4.486 10 10-4.486 10-10 10z"/></svg>
+                    Chamar no WhatsApp
+                </a>
+            </div>
         </div>
     </section>
 
@@ -691,24 +889,32 @@
         <div class="container">
             <div class="footer-content">
                 <div class="footer-section">
-                    <div style="display: flex; align-items: center; gap: 0.5rem; margin-bottom: 1rem;">
-                        <div class="logo-circle" style="width: 2rem; height: 2rem; font-size: 1rem;">F</div>
-                        <span style="font-weight: 600;">Atendimento Financeiro</span>
+                    <div class="footer-logo">
+                        <div class="footer-logo-icon">
+                            <svg viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+                        </div>
+                        <span style="color: white; font-weight: 700; font-size: 1.1rem;">Atendimento Especializado</span>
                     </div>
-                    <p>Central de atendimento especializado em questões financeiras. Disponível via WhatsApp para sua conveniência.</p>
+                    <p>Atendimento especializado em emissão e solicitação de serviços. Processos rápidos e profissionais para sua conveniência.</p>
                 </div>
                 <div class="footer-section">
-                    <h4>Entre em Contato</h4>
-                    <p>WhatsApp: (11) 9-2617-3420</p>
-                    <p>Atendimento disponível para esclarecer dúvidas e fornecer informações.</p>
-                    <a href="https://wa.me/5511926173420?text=Ol%C3%A1%2C%20preciso%20de%20atendimento." class="btn btn-primary" style="margin-top: 1rem;">Iniciar Conversa</a>
+                    <h4>Contato</h4>
+                    <p><strong style="color: white;">WhatsApp:</strong> (11) 92617-3420</p>
+                    <p>Segunda a Sábado: 8h às 20h</p>
+                    <a href="https://wa.me/5511926173420?text=Ol%C3%A1!%20Gostaria%20de%20informa%C3%A7%C3%B5es." class="btn btn-whatsapp" style="margin-top: 1rem; padding: 0.5rem 1.25rem; font-size: 0.85rem;">
+                        Iniciar Conversa
+                    </a>
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>© 2026 Atendimento Financeiro. Todos os direitos reservados.</p>
-                <p>Proteção de dados e segurança garantidas em todas as comunicações.</p>
+                <p>&copy; 2026 Atendimento Especializado. Todos os direitos reservados.</p>
             </div>
         </div>
     </footer>
+
+    <!-- Floating WhatsApp Button -->
+    <a href="https://wa.me/5511926173420?text=Ol%C3%A1!%20Gostaria%20de%20solicitar%20um%20atendimento." class="whatsapp-float" target="_blank" rel="noopener" title="Fale conosco pelo WhatsApp">
+        <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.625.846 5.059 2.284 7.034L.789 23.492a.5.5 0 00.612.638l4.666-1.223A11.94 11.94 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-2.167 0-4.187-.648-5.887-1.763l-.412-.283-3.528.924.94-3.428-.313-.448A9.935 9.935 0 012 12C2 6.486 6.486 2 12 2s10 4.486 10 10-4.486 10-10 10z"/></svg>
+    </a>
 </body>
 </html>
